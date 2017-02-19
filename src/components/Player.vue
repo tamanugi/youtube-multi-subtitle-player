@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="player">
     <div id="video-player"></div>
     <div>{{ subtitle_ja }}</div>
     <div>{{ subtitle_en }}</div>
@@ -19,6 +19,7 @@ export default {
   name: 'player',
   data () {
     return {
+      videoid: '-sGiE10zNQM',
       current: 0,
       player: {},
       srt: {},
