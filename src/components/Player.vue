@@ -13,8 +13,14 @@
         </span>
       </div>
     </div>
-    <div>
-      <input type="text" v-model="videoid"><button v-on:click="loadYoutube">play!!</button>
+    <div class="input-group videoid-input-group">
+      <span class="input-group-addon" >https://www.youtube.com/watch?v=</span>
+      <input type="text" class="form-control" aria-describedby="basic-addon3" v-model="videoid">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" @click="loadYoutube">
+          <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+        </button>
+      </span>
     </div>
     <div v-if="debug">{{ current }}</div>
   </div>
@@ -154,5 +160,11 @@ a {
   margin: 0 auto;
   width: 640px;
   height: 360px;
+}
+
+.videoid-input-group {
+  width: 640px;
+  margin: 0 auto;
+  margin-top: 16px;
 }
 </style>
