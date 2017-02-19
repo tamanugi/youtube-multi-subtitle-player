@@ -1,8 +1,18 @@
 <template>
   <div class="player">
-    <div id="video-player"></div>
-    <div class="subtitle">{{ subtitle_ja }}</div>
-    <div class="subtitle">{{ subtitle_en }}</div>
+    <div id="player-area">
+      <div id="video-player"></div>
+      <div class="caption-window caption-window-ja">
+        <span class="captions">
+          <span class="subtitle">{{ subtitle_ja }}</span>
+        </span>
+      </div>
+      <div class="caption-window">
+        <span class="captions">
+          <span class="subtitle">{{ subtitle_en }}</span>
+        </span>
+      </div>
+    </div>
     <div>
       <input type="text" v-model="videoid"><button v-on:click="loadYoutube">play!!</button>
     </div>
@@ -108,7 +118,41 @@ a {
   color: #42b983;
 }
 
+.caption-window {
+  position: absolute;
+  text-align: center;
+  width: 640px;
+  margin: 0 auto;
+  bottom: 2%;
+  z-index: 35;
+}
+
+.caption-window-ja {
+  position: absolute;
+  text-align: center;
+  bottom: 10%;
+  z-index: 35;
+}
+
+.captions {
+  text-align: center;
+}
+
 .subtitle {
-  height: 32px;
+  font-size: 16px;
+  bottom: 0px;
+  border-radius: 2px;
+  color: white;
+  fill: rgb(255, 255, 255);
+  background: rgba(8, 8, 8, 0.74902);
+  font-family: Roboto, "Arial Unicode Ms", Arial, Helvetica, Verdana, "PT Sans Caption", sans-serif;
+}
+
+#player-area {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 640px;
+  height: 360px;
 }
 </style>
