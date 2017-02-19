@@ -57,39 +57,29 @@ export default {
       })
     },
     update: function () {
-      let setCurrentTime = () => {
-        if (this.player) {
-          this.player.getCurrentTime().then(time => {
-            time = Math.floor(time * 1000)
-            this.current = time
+      if (this.player) {
+        this.player.getCurrentTime().then(time => {
+          time = Math.floor(time * 1000)
+          this.current = time
 
-            let subtitleJa = ''
-            for (let i = 0; i < this.srt['ja'].length; i++) {
-              let sub = this.srt.ja[i]
-              let startTime = Number(sub.$.t)
-              let endTime = startTime + Number(sub.$.d)
-              if (startTime <= time && time <= endTime) {
-                subtitleJa = sub._
-                break
-              }
-            }
-            let subtitleEn = ''
-            for (let i = 0; i < this.srt['en'].length; i++) {
-              let sub = this.srt.en[i]
-              let startTime = Number(sub.$.t)
-              let endTime = startTime + Number(sub.$.d)
-              if (startTime <= time && time <= endTime) {
-                subtitleEn = sub._
-                break
-              }
-            }
-            this.subtitle_ja = subtitleJa
-            this.subtitle_en = subtitleEn
-          })
+          this.subtitle_ja = this.getSubtitle('ja')
+          this.subtitle_en = this.getSubtitle('en')
+        })
+      }
+      setTimeout(this.update, 50)
+    },
+    getSubtitle: function (lang) {
+      let subtitle = ''
+      for (let i = 0; i < this.srt[lang].length; i++) {
+        let sub = this.srt[lang][i]
+        let startTime = Number(sub.$.t)
+        let endTime = startTime + Number(sub.$.d)
+        if (startTime <= this.current && this.current <= endTime) {
+          subtitle = sub._
+          break
         }
       }
-      setCurrentTime()
-      setTimeout(this.update, 50)
+      return subtitle
     }
   }
 
