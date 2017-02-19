@@ -29,14 +29,14 @@ export default {
   methods: {
     loadYoutube: function () {
       this.player = YouTubePlayer('video-player')
-      this.player.loadVideoById('-sGiE10zNQM')
+      this.player.loadVideoById(this.videoid)
       this.player.stopVideo()
       this.player.on('ready', () => { this.update() })
       this.fetchLangSubtitle('ja')
       this.fetchLangSubtitle('en')
     },
     fetchLangSubtitle: function (lang) {
-      let subtitleUrl = `https://www.youtube.com/api/timedtext?fmt=srv3&lang=${lang}&v=-sGiE10zNQM`
+      let subtitleUrl = `https://www.youtube.com/api/timedtext?fmt=srv3&lang=${lang}&v=${this.videoid}`
       console.log(subtitleUrl)
       http.get(subtitleUrl, (res) => {
         let body = ''
