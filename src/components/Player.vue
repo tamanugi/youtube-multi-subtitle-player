@@ -1,10 +1,12 @@
 <template>
   <div class="hello">
-      <div id="video-player"></div>
-      <button v-on:click="loadYoutube">play!!</button>
-      <div>{{ current }}</div>
-      <div>{{ subtitle_ja }} </div>
-      <div>{{ subtitle_en }} </div>
+    <div id="video-player"></div>
+    <div>{{ subtitle_ja }}</div>
+    <div>{{ subtitle_en }}</div>
+    <div>
+      <input type="text" v-model="videoid"><button v-on:click="loadYoutube">play!!</button>
+    </div>
+    <div>{{ current }}</div>
   </div>
 </template>
 
