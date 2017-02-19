@@ -1,8 +1,8 @@
 <template>
   <div class="player">
     <div id="video-player"></div>
-    <div>{{ subtitle_ja }}</div>
-    <div>{{ subtitle_en }}</div>
+    <div class="subtitle">{{ subtitle_ja }}</div>
+    <div class="subtitle">{{ subtitle_en }}</div>
     <div>
       <input type="text" v-model="videoid"><button v-on:click="loadYoutube">play!!</button>
     </div>
@@ -105,5 +105,9 @@ li {
 
 a {
   color: #42b983;
+}
+
+.subtitle {
+  height: 32px;
 }
 </style>
