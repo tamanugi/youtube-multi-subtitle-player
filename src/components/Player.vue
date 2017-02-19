@@ -6,7 +6,7 @@
     <div>
       <input type="text" v-model="videoid"><button v-on:click="loadYoutube">play!!</button>
     </div>
-    <div>{{ current }}</div>
+    <div v-if="debug">{{ current }}</div>
   </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
       player: {},
       srt: {},
       subtitle_ja: '',
-      subtitle_en: ''
+      subtitle_en: '',
+      debug: false
     }
   },
   methods: {
