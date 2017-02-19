@@ -88,13 +88,15 @@ export default {
     },
     getSubtitle: function (lang) {
       let subtitle = ''
-      for (let i = 0; i < this.srt[lang].length; i++) {
-        let sub = this.srt[lang][i]
-        let startTime = Number(sub.$.t)
-        let endTime = startTime + Number(sub.$.d)
-        if (startTime <= this.current && this.current <= endTime) {
-          subtitle = sub._
-          break
+      if (this.srt[lang]) {
+        for (let i = 0; i < this.srt[lang].length; i++) {
+          let sub = this.srt[lang][i]
+          let startTime = Number(sub.$.t)
+          let endTime = startTime + Number(sub.$.d)
+          if (startTime <= this.current && this.current <= endTime) {
+            subtitle = sub._
+            break
+          }
         }
       }
       return subtitle
