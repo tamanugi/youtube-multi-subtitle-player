@@ -14,7 +14,7 @@ import http from 'http'
 import {parseString} from 'xml2js'
 
 export default {
-  name: 'hello',
+  name: 'player',
   data () {
     return {
       current: 0,
