@@ -6,8 +6,9 @@ deploy:
   bucket: multi-srt-player.tamanugi.com
   region: ap-northeast-1
   endpoint: multi-srt-player.tamanugi.com.s3-ap-northeast-1.amazonaws.com
-  before_script:
+  before_deploy:
   - npm run build
+  skip_cleanup: true
   local-dir: dist
   on:
     branch: master
