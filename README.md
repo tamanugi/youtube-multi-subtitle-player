@@ -1,5 +1,7 @@
 # youtube-multi-subtitle-player
 
+[![Build Status](https://travis-ci.org/tamanugi/youtube-multi-subtitle-player.svg?branch=master)](https://travis-ci.org/tamanugi/youtube-multi-subtitle-player)
+
 > multi subtitle player for youtube
 
 ## Build Setup
